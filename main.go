@@ -48,8 +48,18 @@ func main() {
 
 			fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
 
-			// add the user to bookings after collecting their input
-			fmt.Println("These are the bookings we have now:", bookings)
+
+			var firstNames = []string{}
+			for _, booking := range(bookings){
+				var names = strings.Fields(booking)
+				firstNames = append(firstNames, names[0])
+				
+				// add the user to bookings after collecting their input
+				fmt.Println("These are the bookings we have now:", bookings)
+
+			}
+
+			
 			
 		}
 
