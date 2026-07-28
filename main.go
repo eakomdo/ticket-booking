@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-func main(){
+func main() {
 
 	var conferenceName string = "Go Conference"
-	const conferenceTickets int= 50
+	const conferenceTickets int = 50
 	var remainingTickets int = 50
 	var bookings = []string{}
 
@@ -13,17 +13,15 @@ func main(){
 	fmt.Printf("We have a total of %v tickets and %v tickets remaining\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 
-
 	var firstName string
 	var lastName string
 	var email string
 	var userTickets int
-	bookings = append(bookings, firstName + " " + lastName)
-	
-
 	fmt.Println("Enter your first name: ")
 	fmt.Scan(&firstName)
 
+
+    // collect user input 
 	fmt.Println("Enter your last name: ")
 	fmt.Scan(&lastName)
 
@@ -35,8 +33,11 @@ func main(){
 
 	remainingTickets = conferenceTickets - userTickets
 
-
 	fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
-	fmt.Println(bookings)
+
+	// add the user to bookings after collecting their input
+	bookings = append(bookings, firstName+" "+lastName)
+
+	fmt.Println("These are the bookings we have now:", bookings)
 
 }
