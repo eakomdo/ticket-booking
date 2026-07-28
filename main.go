@@ -35,6 +35,7 @@ func main() {
 
 	fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
 
+	
 	// add the user to bookings after collecting their input
 	bookings = append(bookings, firstName+" "+lastName)
 
