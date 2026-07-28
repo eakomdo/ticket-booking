@@ -53,9 +53,9 @@ func main() {
 			for _, booking := range(bookings){
 				var names = strings.Fields(booking)
 				firstNames = append(firstNames, names[0])
-				
+
 				// add the user to bookings after collecting their input
-				fmt.Println("These are the bookings we have now:", bookings)
+				fmt.Println("These are the bookings %v we have now:", firstNames)
 
 			}
 
