@@ -21,7 +21,7 @@ func main() {
 	fmt.Scan(&firstName)
 
 
-    // collect user input 
+    // collect user data
 	fmt.Println("Enter your last name: ")
 	fmt.Scan(&lastName)
 
@@ -31,6 +31,8 @@ func main() {
 	fmt.Println("How many tickets do you want to purchase: ")
 	fmt.Scan(&userTickets)
 
+    
+	// ask user for number of tickets 
 	remainingTickets = conferenceTickets - userTickets
 
 	fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
