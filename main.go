@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 
@@ -31,16 +34,24 @@ func main() {
 	fmt.Println("How many tickets do you want to purchase: ")
 	fmt.Scan(&userTickets)
 
+	isvalidName = len(firstName) >= 2 && len(lastName) >= 2
+	isvalidEmail = strings.Contains(email, "@")
+	isvalidTicketNumber = userTickets > 0 || userTickets <= remainingTickets
+
+
+	if isvalidName && isvalidEmail && isvalidTicketNumber{
+		// ask user for number of tickets 
+		remainingTickets = conferenceTickets - userTickets
+		bookings = append(bookings, firstName+" "+lastName)
+
+		fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
+
+		// add the user to bookings after collecting their input
+		fmt.Println("These are the bookings we have now:", bookings)
+		
+	}
+
     
-	// ask user for number of tickets 
-	remainingTickets = conferenceTickets - userTickets
-
-	fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
-
 	
-	// add the user to bookings after collecting their input
-	bookings = append(bookings, firstName+" "+lastName)
-
-	fmt.Println("These are the bookings we have now:", bookings)
 
 }
