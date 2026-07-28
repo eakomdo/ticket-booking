@@ -7,7 +7,7 @@ func main(){
 	var conferenceName string = "Go Conference"
 	const conferenceTickets int= 50
 	var remainingTickets int = 50
-	var bookings [] string
+	var bookings = []string{}
 
 	fmt.Printf("Hello, you are welcome to %v booking application\n", conferenceName)
 	fmt.Printf("We have a total of %v tickets and %v tickets remaining\n", conferenceTickets, remainingTickets)
@@ -18,7 +18,7 @@ func main(){
 	var lastName string
 	var email string
 	var userTickets int
-	bookings = append(bookings, firstName+ " " +lastName)
+	bookings = append(bookings, firstName + " " + lastName)
 	
 
 	fmt.Println("Enter your first name: ")
