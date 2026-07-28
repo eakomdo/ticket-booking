@@ -59,6 +59,11 @@ func main() {
 
 			}
 
+			// end program if tickets have been sold out
+			if remainingTickets == 0{
+				fmt.Printf("The tickets for %v have been sold out. See you next year!\n", conferenceName)
+			}
+
 			
 			
 		}
