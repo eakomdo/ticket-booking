@@ -38,32 +38,32 @@ func main() {
 
 		var isvalidName = len(firstName) >= 2 && len(lastName) >= 2
 		var isvalidEmail = strings.Contains(email, "@")
-		var isvalidTicketNumber = userTickets > 0 || userTickets <= remainingTickets
+		var isvalidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
 
 
-		if isvalidName && isvalidEmail && isvalidTicketNumber{
-			// ask user for number of tickets 
-			remainingTickets = conferenceTickets - userTickets
+		if isvalidName && isvalidEmail && isvalidTicketNumber {
+			remainingTickets = remainingTickets - userTickets
 			bookings = append(bookings, firstName+" "+lastName)
 
 			fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
 
-
 			var firstNames = []string{}
-			for _, booking := range(bookings){
+			for _, booking := range bookings {
 				var names = strings.Fields(booking)
 				firstNames = append(firstNames, names[0])
-
-				// add the user to bookings after collecting their input
-				fmt.Println("These are the bookings %v we have now:", firstNames)
-
 			}
 
-			// end program if tickets have been sold out
-			if remainingTickets == 0{
+			fmt.Printf("These are the bookings we have now: %v\n", firstNames)
+
+			if remainingTickets == 0 {
 				fmt.Printf("The tickets for %v have been sold out. See you next year!\n", conferenceName)
+				break
 			}
 
+
+			}
+
+			
 			
 			
 		}
