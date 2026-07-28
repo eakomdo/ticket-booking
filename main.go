@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-
 	var conferenceName string = "Go Conference"
 	const conferenceTickets int = 50
 	var remainingTickets int = 50
@@ -25,7 +24,6 @@ func main() {
 		fmt.Println("Enter your first name: ")
 		fmt.Scan(&firstName)
 
-
 		// collect user data
 		fmt.Println("Enter your last name: ")
 		fmt.Scan(&lastName)
@@ -39,7 +37,6 @@ func main() {
 		var isvalidName = len(firstName) >= 2 && len(lastName) >= 2
 		var isvalidEmail = strings.Contains(email, "@")
 		var isvalidTicketNumber = userTickets > 0 && userTickets <= remainingTickets
-
 
 		if isvalidName && isvalidEmail && isvalidTicketNumber {
 			remainingTickets = remainingTickets - userTickets
@@ -59,19 +56,18 @@ func main() {
 				fmt.Printf("The tickets for %v have been sold out. See you next year!\n", conferenceName)
 				break
 			}
-
-
+		} else {
+			if !isvalidName{
+				fmt.Println("Your first name or last name is too short")
 			}
 
-			
-			
-			
+			if !isvalidEmail{
+				fmt.Println("Your email does not have @ symbol")
+			}
+
+			if !isvalidTicketNumber{
+				fmt.Println("The ticket number you entered is invalid")
+			}
 		}
-
-		
 	}
-	
-    
-	
-
-
+}
