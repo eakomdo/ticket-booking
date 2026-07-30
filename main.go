@@ -110,7 +110,7 @@ func bookTicket(remainingTickets int, userTickets int, bookings []map[string]str
 	userData["number of tickets booked"] = strconv.FormatInt(int64(userTickets), 10)
 
 	bookings = append(bookings, userData)
-	fmt.Printf("Here is a list of bookings %v\n", userData)
+	fmt.Printf("Here is a list of bookings %v\n", bookings)
 
 	fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
 
