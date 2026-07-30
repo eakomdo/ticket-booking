@@ -85,7 +85,7 @@ func validateUser(firstName string, lastName string, email string, userTickets i
 
 }
 
-// 
+// function to get user first names
 func getUserFirstNames(bookings []string) []string {
 	var firstNames = []string{}
 	for _, booking := range bookings {
@@ -95,6 +95,7 @@ func getUserFirstNames(bookings []string) []string {
 	return firstNames
 
 }
+
 
 func bookTicket(remainingTickets int, userTickets int, bookings []string, firstName string, lastName string, email string, conferenceName string) (int, []string) {
 	remainingTickets = remainingTickets - userTickets
