@@ -6,11 +6,21 @@ import (
 	"strings"
 )
 
+
+type userData struct{
+	firstName string
+	lastName string
+	email string
+	numberOfTickets int
+}
+	
 func main() {
 	var conferenceName string = "Go Conference"
 	const conferenceTickets int = 50
 	var remainingTickets int = 50
-	var bookings = make([]map[string]string, 0)
+	var bookings = make([]userData, 0)
+
+
 
 	greetUsers(conferenceName, conferenceTickets, remainingTickets)
 
@@ -89,25 +99,27 @@ func validateUser(firstName string, lastName string, email string, userTickets i
 }
 
 // function to get user first names
-func getUserFirstNames(bookings []map[string]string) []string {
+func getUserFirstNames() []string {
 	var firstNames = []string{}
 	for _, booking := range bookings {
-		firstNames = append(firstNames, booking["firstName"])
+		firstNames = append(firstNames, booking.firstName)
 	}
 	return firstNames
 
 }
 
 // function to book tickets
-func bookTicket(remainingTickets int, userTickets int, bookings []map[string]string, firstName string, lastName string, email string, conferenceName string) (int, []map[string]string) {
+func bookTicket(remainingTickets int, userTickets int, bookings []struct, firstName string, lastName string, email string, conferenceName string) (int, []map[string]string) {
 	remainingTickets = remainingTickets - userTickets
 
 	// create a map
-	var userData = make(map[string]string)
-	userData["firstName"] = firstName
-	userData["lastName"] = lastName
-	userData["email"] = email
-	userData["number of tickets booked"] = strconv.FormatInt(int64(userTickets), 10)
+	var userData = userData{
+		firstName: firstName,
+		lastName: lastName,
+		email: email,
+		numberOfTickets: userTickets,
+	}
+
 
 	bookings = append(bookings, userData)
 	fmt.Printf("Here is a list of bookings %v\n", bookings)
