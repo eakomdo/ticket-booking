@@ -89,7 +89,7 @@ func validateUser(firstName string, lastName string, email string, userTickets i
 }
 
 // function to get user first names
-func getUserFirstNames(bookings []string) []string {
+func getUserFirstNames(bookings []map[string]string) []string {
 	var firstNames = []string{}
 	for _, booking := range bookings {
 		firstNames = append(firstNames, booking["firstName"])
@@ -99,7 +99,7 @@ func getUserFirstNames(bookings []string) []string {
 }
 
 // function to book tickets
-func bookTicket(remainingTickets int, userTickets int, bookings []string, firstName string, lastName string, email string, conferenceName string) (int, []string) {
+func bookTicket(remainingTickets int, userTickets int, bookings []map[string]string, firstName string, lastName string, email string, conferenceName string) (int, []map[string]string) {
 	remainingTickets = remainingTickets - userTickets
 
 	// create a map
