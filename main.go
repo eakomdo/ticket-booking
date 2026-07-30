@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 )
 
@@ -99,7 +98,7 @@ func validateUser(firstName string, lastName string, email string, userTickets i
 }
 
 // function to get user first names
-func getUserFirstNames() []string {
+func getUserFirstNames(bookings []userData) []string {
 	var firstNames = []string{}
 	for _, booking := range bookings {
 		firstNames = append(firstNames, booking.firstName)
@@ -109,7 +108,7 @@ func getUserFirstNames() []string {
 }
 
 // function to book tickets
-func bookTicket(remainingTickets int, userTickets int, bookings []struct, firstName string, lastName string, email string, conferenceName string) (int, []map[string]string) {
+func bookTicket(remainingTickets int, userTickets int, bookings []userData, firstName string, lastName string, email string, conferenceName string) (int, []userData) {
 	remainingTickets = remainingTickets - userTickets
 
 	// create a map
