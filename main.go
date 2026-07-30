@@ -96,7 +96,7 @@ func getUserFirstNames(bookings []string) []string {
 
 }
 
-
+// function to book tickets 
 func bookTicket(remainingTickets int, userTickets int, bookings []string, firstName string, lastName string, email string, conferenceName string) (int, []string) {
 	remainingTickets = remainingTickets - userTickets
 	bookings = append(bookings, firstName+" "+lastName)
