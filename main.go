@@ -45,15 +45,14 @@ func main() {
 	}
 }
 
-// function to welcome users 
+// function to welcome users
 func greetUsers(conferenceName string, conferenceTickets int, remainingTickets int) {
 	fmt.Printf("Hello, you are welcome to %v booking application\n", conferenceName)
 	fmt.Printf("We have a total of %v tickets and %v tickets remaining\n", conferenceTickets, remainingTickets)
 	fmt.Println("Get your tickets here to attend")
 }
 
-
-// function to take user inputs 
+// function to take user inputs
 func getUserInput() (string, string, string, int) {
 
 	var firstName string
@@ -93,25 +92,25 @@ func validateUser(firstName string, lastName string, email string, userTickets i
 func getUserFirstNames(bookings []string) []string {
 	var firstNames = []string{}
 	for _, booking := range bookings {
-		firstNames = append(firstNames, bookings["firstName"])
+		firstNames = append(firstNames, booking["firstName"])
 	}
 	return firstNames
 
 }
 
-// function to book tickets 
+// function to book tickets
 func bookTicket(remainingTickets int, userTickets int, bookings []string, firstName string, lastName string, email string, conferenceName string) (int, []string) {
 	remainingTickets = remainingTickets - userTickets
 
 	// create a map
 	var userData = make(map[string]string)
-	userData ["firstName"] = firstName
-	userData ["lastName"] = lastName
-	userData ["email"] = email
-	userData ["number of tickets booked"] = strconv.FormatInt(int64(userTickets), 10)
+	userData["firstName"] = firstName
+	userData["lastName"] = lastName
+	userData["email"] = email
+	userData["number of tickets booked"] = strconv.FormatInt(int64(userTickets), 10)
 
-
-	bookings = append(bookings, firstName+" "+lastName)
+	bookings = append(bookings, userData)
+	fmt.Printf("Here is a list of bookings %v\n", userData)
 
 	fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
 
