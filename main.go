@@ -51,6 +51,8 @@ func greetUsers(conferenceName string, conferenceTickets int, remainingTickets i
 	fmt.Println("Get your tickets here to attend")
 }
 
+
+// function to take user inputs 
 func getUserInput() (string, string, string, int) {
 
 	var firstName string
