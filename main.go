@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 	"strings"
 )
 
@@ -9,7 +10,7 @@ func main() {
 	var conferenceName string = "Go Conference"
 	const conferenceTickets int = 50
 	var remainingTickets int = 50
-	var bookings = []string{}
+	var bookings = make([]map[string]string)
 
 	greetUsers(conferenceName, conferenceTickets, remainingTickets)
 
@@ -102,6 +103,15 @@ func getUserFirstNames(bookings []string) []string {
 // function to book tickets 
 func bookTicket(remainingTickets int, userTickets int, bookings []string, firstName string, lastName string, email string, conferenceName string) (int, []string) {
 	remainingTickets = remainingTickets - userTickets
+
+	// create a map
+	var userData = make(map[string]string)
+	userData ["firstName"] = firstName
+	userData ["lastName"] = lastName
+	userData ["email"] = email
+	userData ["number of tickets booked"] = strconv.FormatInt(int64(userTickets), 10)
+
+
 	bookings = append(bookings, firstName+" "+lastName)
 
 	fmt.Printf("Hi %v %v. You're welcome to %v. A confirmation email will be sent to %v. We have %v tickets available now\n", firstName, lastName, conferenceName, email, remainingTickets)
