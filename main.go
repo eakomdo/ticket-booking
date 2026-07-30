@@ -44,6 +44,7 @@ func main() {
 	}
 }
 
+// function to welcome users 
 func greetUsers(conferenceName string, conferenceTickets int, remainingTickets int) {
 	fmt.Printf("Hello, you are welcome to %v booking application\n", conferenceName)
 	fmt.Printf("We have a total of %v tickets and %v tickets remaining\n", conferenceTickets, remainingTickets)
