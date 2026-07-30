@@ -10,7 +10,7 @@ func main() {
 	var conferenceName string = "Go Conference"
 	const conferenceTickets int = 50
 	var remainingTickets int = 50
-	var bookings = make([]map[string]string)
+	var bookings = make([]map[string]string, 0)
 
 	greetUsers(conferenceName, conferenceTickets, remainingTickets)
 
@@ -93,8 +93,7 @@ func validateUser(firstName string, lastName string, email string, userTickets i
 func getUserFirstNames(bookings []string) []string {
 	var firstNames = []string{}
 	for _, booking := range bookings {
-		var names = strings.Fields(booking)
-		firstNames = append(firstNames, names[0])
+		firstNames = append(firstNames, bookings["firstName"])
 	}
 	return firstNames
 
