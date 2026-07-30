@@ -74,6 +74,7 @@ func getUserInput() (string, string, string, int) {
 
 }
 
+// function to validate user input dta
 func validateUser(firstName string, lastName string, email string, userTickets int, remainingTickets int) (bool, bool, bool) {
 
 	var isvalidName = len(firstName) >= 2 && len(lastName) >= 2
@@ -84,6 +85,7 @@ func validateUser(firstName string, lastName string, email string, userTickets i
 
 }
 
+// 
 func getUserFirstNames(bookings []string) []string {
 	var firstNames = []string{}
 	for _, booking := range bookings {
